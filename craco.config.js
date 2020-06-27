@@ -17,7 +17,17 @@ module.exports = {
             '^Hooks(.*)$': '<rootDir>/src/Hooks$1',
             '^Pages(.*)$': '<rootDir>/src/Pages$1',
           },
-          "setupFilesAfterEnv": "<rootDir>/config/jest/setupTests.js",
+          setupFilesAfterEnv: "<rootDir>/config/jest/setupTests.js",
+          // TODO avaible when fix the coverage %
+          // coverageThreshold: {
+          //   global: {
+          //       branches: 80,
+          //       functions: 80,
+          //       lines: 80,
+          //       statements: 80
+          //   }
+          // },
+          coverageReporters: ['json', 'lcov', 'text', 'clover', 'html']
         },
     },
 };

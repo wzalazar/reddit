@@ -31,15 +31,15 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       run: yarn
-    - name: yarn lint
+    - name: Lint
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       run: yarn lint
-    - name: yarn test
+    - name: Coverage
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      run: yarn test
-    - name: npm run semantic-release
+      run: yarn test --coverage
+    - name: Semantic Release
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       run: npm run semantic-release
