@@ -39,6 +39,11 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       run: yarn test --coverage
+    - name: Codecov
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: yarn codecov
     - name: Semantic Release
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
