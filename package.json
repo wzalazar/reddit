@@ -35,7 +35,8 @@
     "eject": "react-scripts eject",
     "clean": "rimraf build",
     "lint": "eslint -f table src --ext .ts --ext .tsx",
-    "lint:fix": "eslint --fix -f table src --ext .ts --ext .tsx"
+    "lint:fix": "eslint --fix -f table src --ext .ts --ext .tsx",
+    "semantic-release": "semantic-release"
   },
   "eslintConfig": {
     "extends": "react-app"
