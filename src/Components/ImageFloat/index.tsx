@@ -1,7 +1,12 @@
 import Styled from 'styled-components'
 
-export const ImageFloat = Styled.img`
-  height: 40vmin;
+type Props = {
+  t?: number
+}
+
+export const ImageFloat = Styled.img<Props>`
+  width: ${(props) => props.width}
+  height: ${(props) => props.height}
   pointer-events: none;
 
 
@@ -14,7 +19,7 @@ export const ImageFloat = Styled.img`
       transform: translateY(0);
     }
     50% {
-      transform: translateY(10px)
+      transform: translateY(${(props) => props.t || '5'}px)
     }
     100% {
       transform: translateY(0px)
