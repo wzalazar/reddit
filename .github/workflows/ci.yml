@@ -27,18 +27,19 @@ jobs:
         nvm use
         node -v
         npm -v
-    - name: npm install
+    - name: yarn
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: npm install
-    - name: npm run lint
+      run: yarn
+    - name: yarn lint
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: npm run lint
+      run: yarn lint
+    - name: yarn test
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: yarn test
     - name: npm run semantic-release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: npm run semantic-release
