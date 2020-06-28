@@ -4,7 +4,7 @@ export const Theme = {
     white: '#FFF',
     whiteGray: '#edeff1',
     gray: '#DAE0E6',
-    violet: 'rgb(112, 76, 182)',
-    violetOpacity: (opacity: string) => `rgb(112, 76, 182, ${opacity})`,
+    blue: 'rgb(0, 121, 211)',
+    blueOpacity: (opacity: string) => `rgb(0, 121, 211, ${opacity})`,
   },
 }

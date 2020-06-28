@@ -11,6 +11,7 @@ type Props = {
   pr?: string
   pb?: string
   pl?: string
+  width?: string
 }
 
 export const Space = styled.div<Props>`
@@ -24,4 +25,5 @@ export const Space = styled.div<Props>`
   margin-right: ${(props) => props.mr};
   margin-bottom: ${(props) => props.mb};
   margin-left: ${(props) => props.ml};
+  width: ${(props) => props.width};
 `
