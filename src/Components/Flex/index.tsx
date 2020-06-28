@@ -5,6 +5,7 @@ type Props = {
   align?: 'center' | 'start' | 'end' | 'self-start' | 'self-end' | 'flex-start' | 'flex-end'
   wrap?: 'nowrap' | 'wrap' | 'wrap-reverse'
   width?: string
+  height?: string
 }
 
 export const Flex = styled.div<Props>`
@@ -13,4 +14,5 @@ export const Flex = styled.div<Props>`
   align-items: ${(props) => props.align};
   flex-wrap: ${(props) => props.wrap};
   width: ${(props) => props.width};
+  height: ${(props) => props.height};
 `

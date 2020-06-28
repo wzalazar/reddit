@@ -5,19 +5,26 @@ interface InitialState {
   data: any[]
   loading: string
   error: boolean
+  dismissPosts: any[]
 }
 
 const initialState: InitialState = {
   data: [],
   loading: 'idle',
   error: false,
+  dismissPosts: [],
 }
 
 const postSlice = createSlice({
   name: 'postsReddit',
   initialState,
   /* eslint-disable no-empty-pattern */
-  reducers: {},
+  reducers: {
+    dismissPosts: (state, action: PayloadAction<string>) => {
+      state.dismissPosts.push(action.payload)
+      state.dismissPosts = Array.from(new Set(state.dismissPosts))
+    },
+  },
   extraReducers: {
     [postsFetch.pending]: () => {},
     [postsFetch.fulfilled]: (state, action: PayloadAction<any>) => {
@@ -27,6 +34,6 @@ const postSlice = createSlice({
   },
 })
 
-export const {} = postSlice.actions
+export const { dismissPosts } = postSlice.actions
 
 export default postSlice.reducer

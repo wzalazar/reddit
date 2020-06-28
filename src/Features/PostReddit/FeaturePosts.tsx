@@ -6,27 +6,36 @@ import { Space } from 'Components/Space'
 import { Button } from 'Components/Button'
 import { Flex } from 'Components/Flex'
 
-import { useRedditActions } from './Hooks/useRedditActions'
+import { RemovePostAnimation } from 'Components/Animations'
+
+import { usePostsActions } from './Hooks/usePostsActions'
 
 export const FeaturePosts = () => {
-  const { pages, onFetchMore } = useRedditActions()
+  const { pages, onFetchMore, onDismissPost } = usePostsActions()
+
+  const handleDissmmissPost = (event: any, id: string): void => {
+    event.preventDefault()
+    onDismissPost(id)
+  }
 
   return (
     <Flex wrap="wrap" justify="center">
       {pages.map(([page, posts = []]: any) => (
         <React.Fragment key={page}>
           {posts.map((post: any) => (
-            <Space key={`${page}-${post.id}`} m="10px" width="100%">
-              <Link
-                to={{
-                  pathname: '/posts',
-                  search: `?page=${page}&id=${post.id}`,
-                  state: { fromDashboard: true },
-                }}
-              >
-                <Card {...post} />
-              </Link>
-            </Space>
+            <RemovePostAnimation key={`${page}-${post.id}`} isDismissing={post.isDismiss}>
+              <Space m="10px">
+                <Link
+                  to={{
+                    pathname: '/posts',
+                    search: `?page=${page}&id=${post.id}`,
+                    state: { fromDashboard: true },
+                  }}
+                >
+                  <Card {...post} onDismiss={(event: any) => handleDissmmissPost(event, post.id)} />
+                </Link>
+              </Space>
+            </RemovePostAnimation>
           ))}
         </React.Fragment>
       ))}

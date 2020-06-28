@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-const redditSelector = (state: any) => state?.postsReddit?.data ?? []
+const redditSelector = (state: any) => state?.postsReddit ?? []
 
 const mappingPost = (post: any) => ({
   id: post?.data?.id,
@@ -13,26 +13,33 @@ const mappingPost = (post: any) => ({
 })
 
 export const postsPageSelector = createSelector(redditSelector, (pages) => {
-  return pages.reduce((acum: any, page: any, pageNumber: number) => {
+  return pages.data.reduce((acum: any, page: any, pageNumber: number) => {
     const children = page?.data?.children ?? []
+    const posts = children.map((post: any) => {
+      const postMapped = mappingPost(post)
 
-    const posts = children.map((post: any) => mappingPost(post))
+      return { ...postMapped, isDismiss: pages.dismissPosts.indexOf(post.data.id) !== -1 }
+    })
 
     return [...acum, [pageNumber, posts]]
   }, [])
 })
 
 export const postsAfterSelector = createSelector(redditSelector, (pages) => {
-  const [lastPage] = pages.slice(-1) ?? []
+  const [lastPage] = pages?.data?.slice(-1) ?? []
   return lastPage?.data?.after
 })
 
 export const postsGetByIDSelector = (page?: any, id?: string) =>
   createSelector(redditSelector, (pages) => {
-    const children = pages[page]?.data?.children ?? []
+    const posts = pages?.data[page]?.data?.children ?? []
 
-    for (let child of children) {
-      if (child.data.id === id) return mappingPost(child)
+    for (let post of posts) {
+      if (post.data.id === id) {
+        const postMapped = mappingPost(post)
+
+        return { ...postMapped, isDismiss: pages.dismissPosts.indexOf(post.data.id) !== -1 }
+      }
     }
 
     return {}
