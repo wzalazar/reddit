@@ -29,7 +29,6 @@ export const FeaturePosts = () => {
                   to={{
                     pathname: '/posts',
                     search: `?page=${page}&id=${post.id}`,
-                    state: { fromDashboard: true },
                   }}
                 >
                   <Card {...post} onDismiss={(event: any) => handleDissmmissPost(event, post.id)} />
