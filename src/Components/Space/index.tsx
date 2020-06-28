@@ -26,4 +26,5 @@ export const Space = styled.div<Props>`
   margin-bottom: ${(props) => props.mb};
   margin-left: ${(props) => props.ml};
   width: ${(props) => props.width};
+  box-sizing: border-box;
 `
