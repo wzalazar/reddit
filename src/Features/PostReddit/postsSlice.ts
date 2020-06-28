@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { postsFetch } from './postsFetch'
 
 interface InitialState {
-  data: []
+  data: any[]
   loading: string
   error: boolean
 }
@@ -21,7 +21,7 @@ const postSlice = createSlice({
   extraReducers: {
     [postsFetch.pending]: () => {},
     [postsFetch.fulfilled]: (state, action: PayloadAction<any>) => {
-      state.data = action.payload
+      state.data.push(action.payload)
     },
     [postsFetch.rejected]: () => {},
   },
