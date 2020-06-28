@@ -17,4 +17,10 @@ export const GlobalStyles = createGlobalStyle`
   h5 { font-size:16px; }
   h6 { font-size:14px; }
   p { font-size: 12px; }
+
+  h1, h2, h3, h4, h6, p, a {
+    color: #1c1c1c;
+    border: none;
+    text-decoration: none;
+  }
 `

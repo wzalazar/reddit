@@ -10,13 +10,6 @@ import { IconComment } from 'Components/Icons'
 import { IconOk } from 'Components/Icons'
 import { Opacity } from 'Components/Opacity'
 
-// - Title (at its full length, so take this into account when sizing your cells)
-// - Author
-// - entry date, following a format like “x hours ago”
-// - A thumbnail for those who have a picture.
-// - Number of comments
-// - Unread status
-
 type Props = {
   title: string
   author: string

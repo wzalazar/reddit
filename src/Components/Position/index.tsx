@@ -16,4 +16,5 @@ export const Position = styled.div<Props>`
   left: ${(props) => props.left};
   right: ${(props) => props.rigth};
   width: ${(props) => props.width};
+  z-index: 9999;
 `
