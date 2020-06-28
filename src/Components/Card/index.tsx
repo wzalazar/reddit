@@ -30,6 +30,7 @@ type Props = {
 
 const CardBox = styled.div`
   background-color: ${(props) => props.theme.colors.white};
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2);
 `
 
 export const Card: FC<Props> = ({
