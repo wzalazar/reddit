@@ -1,14 +1,16 @@
 import styled from 'styled-components'
 
 type Props = {
-  justify?: string
-  align?: string
-  wrap?: string
+  justify?: 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'initial' | 'inherit'
+  align?: 'center' | 'start' | 'end' | 'self-start' | 'self-end' | 'flex-start' | 'flex-end'
+  wrap?: 'nowrap' | 'wrap' | 'wrap-reverse'
+  width?: string
 }
 
 export const Flex = styled.div<Props>`
   display: flex;
-  justify-content: ${(props) => (props.justify ? props.justify : '')};
-  align-items: ${(props) => (props.align ? props.align : '')};
-  flex-wrap: ${(props) => (props.wrap ? props.wrap : '')};
+  justify-content: ${(props) => props.justify};
+  align-items: ${(props) => props.align};
+  flex-wrap: ${(props) => props.wrap};
+  width: ${(props) => props.width};
 `
