@@ -1,6 +1,5 @@
 import React from 'react'
 import { Header } from 'Components/Header'
-import { H1 } from 'Components/H1'
 import { Position } from 'Components/Position'
 import { Logo } from 'Components/Logo'
 import { Flex } from 'Components/Flex'
@@ -12,7 +11,7 @@ export const HomeHeader = () => (
         <Logo />
       </Position>
       <Flex align="center">
-        <H1>50 entries from Reddit </H1>
+        <h4>50 entries from Reddit </h4>
       </Flex>
     </Header>
   </Position>
