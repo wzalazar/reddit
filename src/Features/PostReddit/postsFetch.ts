@@ -3,4 +3,4 @@ import { RedditAPI } from './API/Reddit'
 
 const redditAPI = RedditAPI()
 
-export const postsFetch: any = createAsyncThunk('postsReddit/fetch', () => redditAPI.getPost())
+export const postsFetch: any = createAsyncThunk('postsReddit/fetch', (after: string) => redditAPI.getPost(after))
