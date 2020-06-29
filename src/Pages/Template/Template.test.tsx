@@ -7,7 +7,7 @@ describe('Hompage', () => {
   it('should get the header title', () => {
     const { getByText } = render(
       <Providers>
-        <Template main={null} sidebar={null} />
+        <Template main={null} sidebar={null} footer={null} />
       </Providers>
     )
 
