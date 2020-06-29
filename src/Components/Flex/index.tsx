@@ -6,6 +6,7 @@ type Props = {
   wrap?: 'nowrap' | 'wrap' | 'wrap-reverse'
   width?: string
   height?: string
+  minWidth?: string
 }
 
 export const Flex = styled.div<Props>`
@@ -15,4 +16,5 @@ export const Flex = styled.div<Props>`
   flex-wrap: ${(props) => props.wrap};
   width: ${(props) => props.width};
   height: ${(props) => props.height};
+  min-width: ${(props) => props.minWidth};
 `
