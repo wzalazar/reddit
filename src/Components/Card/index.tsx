@@ -41,7 +41,7 @@ export const Card: FC<Props> = ({
       <Flex wrap="wrap">
         <Flex align="center" justify="space-between" width="100%">
           <Flex align="center" justify="center">
-            {statusRead} <ImgCircle width={'30px'} src={thumbAuthor} alt="Thumb" />{' '}
+            <ImgCircle width={'30px'} src={thumbAuthor} alt="Thumb" />{' '}
             <Space ml="5px" mr="5px">
               <p>Posted by {author}</p>
             </Space>{' '}
@@ -50,7 +50,7 @@ export const Card: FC<Props> = ({
             </time>
           </Flex>
           <Flex align="center" justify="center">
-            <Opacity opacity={0.2}>
+            <Opacity opacity={statusRead ? 1 : 0.2}>
               <IconOk width="15px" />
             </Opacity>
           </Flex>

@@ -7,6 +7,7 @@ interface InitialState {
   error: boolean
   dismissPosts: any[]
   dismissAllPosts: any[]
+  viewedPosts: any[]
 }
 
 const initialState: InitialState = {
@@ -15,6 +16,7 @@ const initialState: InitialState = {
   error: false,
   dismissPosts: [],
   dismissAllPosts: [],
+  viewedPosts: [],
 }
 
 const postSlice = createSlice({
@@ -29,6 +31,10 @@ const postSlice = createSlice({
       const pagesAfters = state?.data?.map((page) => page.data.after)
       state.dismissAllPosts = pagesAfters
     },
+    viewedPosts: (state, action: PayloadAction<string>) => {
+      state.viewedPosts.push(action.payload)
+      state.viewedPosts = Array.from(new Set(state.viewedPosts))
+    },
   },
   extraReducers: {
     [postsFetch.pending]: () => {},
@@ -39,6 +45,6 @@ const postSlice = createSlice({
   },
 })
 
-export const { dismissPosts, dismissAllPosts } = postSlice.actions
+export const { dismissPosts, dismissAllPosts, viewedPosts } = postSlice.actions
 
 export default postSlice.reducer
