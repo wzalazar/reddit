@@ -37,9 +37,12 @@ const postSlice = createSlice({
     },
   },
   extraReducers: {
-    [postsFetch.pending]: () => {},
+    [postsFetch.pending]: (state) => {
+      state.loading = 'loading'
+    },
     [postsFetch.fulfilled]: (state, action: PayloadAction<any>) => {
       state.data.push(action.payload)
+      state.loading = 'complete'
     },
     [postsFetch.rejected]: () => {},
   },

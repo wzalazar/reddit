@@ -26,6 +26,11 @@ const CardBox = styled.div`
   box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2);
 `
 
+const HeaderColor = styled.div`
+  background-color: #f8f9fa;
+  width: 100%;
+`
+
 export const Card: FC<Props> = ({
   title,
   author,
@@ -37,46 +42,48 @@ export const Card: FC<Props> = ({
   onDismiss,
 }): JSX.Element => (
   <CardBox>
-    <Space p="30px">
-      <Flex wrap="wrap">
-        <Flex align="center" justify="space-between" width="100%">
-          <Flex align="center" justify="center">
-            <ImgCircle width={'30px'} src={thumbAuthor} alt="Thumb" />{' '}
-            <Space ml="5px" mr="5px">
-              <p>Posted by {author}</p>
-            </Space>{' '}
-            <time>
-              <p>{date}</p>
-            </time>
+    <Flex wrap="wrap">
+      <HeaderColor>
+        <Space p="5px 15px" width="100%">
+          <Flex align="center" justify="space-between" width="100%">
+            <Flex align="center" justify="center">
+              <ImgCircle width={'30px'} src={thumbAuthor} alt="Thumb" />{' '}
+              <Space ml="5px" mr="5px">
+                <p>Posted by {author}</p>
+              </Space>{' '}
+              <time>
+                <p>{date}</p>
+              </time>
+            </Flex>
+            <Flex align="center" justify="center">
+              <Opacity opacity={statusRead ? 1 : 0.2}>
+                <IconOk width="15px" />
+              </Opacity>
+            </Flex>
           </Flex>
-          <Flex align="center" justify="center">
-            <Opacity opacity={statusRead ? 1 : 0.2}>
-              <IconOk width="15px" />
-            </Opacity>
-          </Flex>
+        </Space>
+      </HeaderColor>
+      <Space p="15px 15px" width="100%">
+        <Flex width="100%">
+          <Img src={thumbPost} alt="Thumb" height="100px" width="100px" />
+          <Space p="0 20px">
+            <h6>{title}</h6>
+          </Space>
         </Flex>
-        <Space mt="20px" width="100%">
-          <Flex width="100%">
-            <Img src={thumbPost} alt="Thumb" height="100px" width="100px" />
-            <Space p="0 20px">
-              <h6>{title}</h6>
+      </Space>
+      <Space p="0 15px 10px 15px" width="100%">
+        <Flex align="center" justify="space-between" width="100%">
+          <Flex align="center" width="100%">
+            <IconComment width="15px" />
+            <Space ml="6px">
+              <p>
+                {commentNumber} <small>Comments</small>
+              </p>
             </Space>
           </Flex>
-        </Space>
-        <Space mt="20px" width="100%">
-          <Flex align="center" justify="space-between" width="100%">
-            <Flex align="center" width="100%">
-              <IconComment width="15px" />
-              <Space ml="6px">
-                <p>
-                  {commentNumber} <small>Comments</small>
-                </p>
-              </Space>
-            </Flex>
-            <Button onClick={onDismiss}>Dismiss</Button>
-          </Flex>
-        </Space>
-      </Flex>
-    </Space>
+          <Button onClick={onDismiss}>Dismiss</Button>
+        </Flex>
+      </Space>
+    </Flex>
   </CardBox>
 )
