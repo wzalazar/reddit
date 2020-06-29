@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
+import moment from 'moment'
 
 import { Flex } from 'Components/Flex'
 import { ImgCircle } from 'Components/ImgCircle'
@@ -16,6 +17,7 @@ type Props = {
 
 const HeaderColor = styled.div`
   background-color: #f8f9fa;
+  height: 40px;
   width: 100%;
 `
 
@@ -24,12 +26,12 @@ export const CardHeader: FC<Props> = ({ author, date, thumbAuthor, statusRead })
     <Space p="5px 15px" width="100%">
       <Flex align="center" justify="space-between" width="100%">
         <Flex align="center" justify="center">
-          <ImgCircle width={'30px'} height={'30px'} src={thumbAuthor} alt="Thumb" />{' '}
+          {thumbAuthor && <ImgCircle width={'30px'} height={'30px'} src={thumbAuthor} alt="Thumb" />}{' '}
           <Space ml="5px" mr="5px">
-            <p>Posted by {author}</p>
+            {author && <p>Posted by {author}</p>}
           </Space>{' '}
           <time>
-            <p>{date}</p>
+            <p>{date && moment.unix(parseInt(date)).fromNow()}</p>
           </time>
         </Flex>
         <Flex align="center" justify="center">

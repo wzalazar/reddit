@@ -37,7 +37,7 @@ export const Post: FC<Props> = ({ title, author, date, thumbAuthor, statusRead, 
             <h2>{title}</h2>
           </Space>
           <Space mt="10px" width="100%">
-            <Img src={getImage(thumbPost)} alt="Thumb" />
+            {thumbPost && <Img src={getImage(thumbPost)} alt="Thumb" />}
           </Space>
         </Flex>
       </Flex>

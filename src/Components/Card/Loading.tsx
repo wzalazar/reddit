@@ -14,6 +14,7 @@ const CardBox = styled.div`
 
 const HeaderColor = styled.div`
   background-color: #f8f9fa;
+  height: 40px;
   width: 100%;
 `
 
@@ -21,9 +22,9 @@ export const CardLoading = (): JSX.Element => (
   <CardBox>
     <Flex wrap="wrap">
       <HeaderColor>
-        <Space p="15px 15px" width="80%">
+        <Space p="20px 15px" width="80%">
           <Flex align="center" justify="space-between" width="100%">
-            <LoadingAnimation height={'20px'} width={'100%'} />
+            <LoadingAnimation height={'10px'} width={'100%'} />
             <Flex align="center" justify="center" />
             <Flex align="center" justify="center" />
           </Flex>
