@@ -12,13 +12,20 @@ const mappingPost = (post: any) => ({
   commentNumber: post?.data['num_comments'],
 })
 
+const isDismiss = (pages: any, page: any, post: any) => {
+  const dismissPost = pages?.dismissPosts.indexOf(post?.data?.id) !== -1
+  const dismissPage = pages?.dismissAllPosts.indexOf(page?.data?.after) !== -1
+
+  return dismissPost || dismissPage
+}
+
 export const postsPageSelector = createSelector(redditSelector, (pages) => {
   return pages.data.reduce((acum: any, page: any, pageNumber: number) => {
     const children = page?.data?.children ?? []
     const posts = children.map((post: any) => {
       const postMapped = mappingPost(post)
 
-      return { ...postMapped, isDismiss: pages.dismissPosts.indexOf(post.data.id) !== -1 }
+      return { ...postMapped, isDismiss: isDismiss(pages, page, post) }
     })
 
     return [...acum, [pageNumber, posts]]
@@ -30,17 +37,21 @@ export const postsAfterSelector = createSelector(redditSelector, (pages) => {
   return lastPage?.data?.after
 })
 
-export const postsGetByIDSelector = (page?: any, id?: string) =>
+export const postsGetByIDSelector = (currentPage?: any, id?: string) =>
   createSelector(redditSelector, (pages) => {
-    const posts = pages?.data[page]?.data?.children ?? []
+    const posts = pages?.data[currentPage]?.data?.children ?? []
+    const page = pages?.data[currentPage]
 
     for (let post of posts) {
       if (post.data.id === id) {
         const postMapped = mappingPost(post)
-
-        return { ...postMapped, isDismiss: pages.dismissPosts.indexOf(post.data.id) !== -1 }
+        return { ...postMapped, isDismiss: isDismiss(pages, page, post) }
       }
     }
 
     return {}
   })
+
+export const postsPageDismiss = createSelector(redditSelector, (pages) => {
+  return pages.dismissAllPosts
+})

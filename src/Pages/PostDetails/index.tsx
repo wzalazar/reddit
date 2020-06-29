@@ -4,6 +4,7 @@ import { Template } from 'Pages/Template'
 import { Space } from 'Components/Space'
 import { FeaturePosts } from 'Features/PostReddit/FeaturePosts'
 import { FeaturePostDetails } from 'Features/PostReddit/FeaturePostDetails'
+import { FeaturePostDismissAll } from 'Features/PostReddit/FeaturePostDismissAll'
 
 export const PostDetails = () => (
   <Template
@@ -17,5 +18,6 @@ export const PostDetails = () => (
         <FeaturePostDetails />
       </Space>
     }
+    footer={<FeaturePostDismissAll />}
   />
 )

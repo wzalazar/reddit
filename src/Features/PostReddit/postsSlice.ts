@@ -6,6 +6,7 @@ interface InitialState {
   loading: string
   error: boolean
   dismissPosts: any[]
+  dismissAllPosts: any[]
 }
 
 const initialState: InitialState = {
@@ -13,16 +14,20 @@ const initialState: InitialState = {
   loading: 'idle',
   error: false,
   dismissPosts: [],
+  dismissAllPosts: [],
 }
 
 const postSlice = createSlice({
   name: 'postsReddit',
   initialState,
-  /* eslint-disable no-empty-pattern */
   reducers: {
     dismissPosts: (state, action: PayloadAction<string>) => {
       state.dismissPosts.push(action.payload)
       state.dismissPosts = Array.from(new Set(state.dismissPosts))
+    },
+    dismissAllPosts: (state) => {
+      const pagesAfters = state?.data?.map((page) => page.data.after)
+      state.dismissAllPosts = pagesAfters
     },
   },
   extraReducers: {
@@ -34,6 +39,6 @@ const postSlice = createSlice({
   },
 })
 
-export const { dismissPosts } = postSlice.actions
+export const { dismissPosts, dismissAllPosts } = postSlice.actions
 
 export default postSlice.reducer

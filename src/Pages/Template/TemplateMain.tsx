@@ -12,6 +12,7 @@ type Props = {
 const Scroll = styled.div`
   overflow-y: scroll;
   height: 100vh;
+  width: 100%;
 `
 
 export const TemplateMain: FC<Props> = ({ sidebar, main }) => (
