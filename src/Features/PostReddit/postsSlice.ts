@@ -8,6 +8,8 @@ interface InitialState {
   dismissPosts: any[]
   dismissAllPosts: any[]
   viewedPosts: any[]
+  animatedPosts: any[]
+  animatedPostsPage: any[]
 }
 
 const initialState: InitialState = {
@@ -17,6 +19,8 @@ const initialState: InitialState = {
   dismissPosts: [],
   dismissAllPosts: [],
   viewedPosts: [],
+  animatedPosts: [],
+  animatedPostsPage: [],
 }
 
 const postSlice = createSlice({
@@ -35,6 +39,19 @@ const postSlice = createSlice({
       state.viewedPosts.push(action.payload)
       state.viewedPosts = Array.from(new Set(state.viewedPosts))
     },
+    animatedPosts: (state, action: PayloadAction<string>) => {
+      state.animatedPosts.push(action.payload)
+      state.animatedPosts = Array.from(new Set(state.animatedPosts))
+    },
+    animatedPostsPage: (state) => {
+      const allPostIds = state?.data
+        ?.reduce((acum, value) => [...acum, value.data.children], [])
+        .flat()
+        .map((x: any) => x.data)
+        .map((x: any) => x.id)
+
+      state.animatedPosts = Array.from(new Set(allPostIds))
+    },
   },
   extraReducers: {
     [postsFetch.pending]: (state) => {
@@ -48,6 +65,6 @@ const postSlice = createSlice({
   },
 })
 
-export const { dismissPosts, dismissAllPosts, viewedPosts } = postSlice.actions
+export const { dismissPosts, dismissAllPosts, viewedPosts, animatedPosts, animatedPostsPage } = postSlice.actions
 
 export default postSlice.reducer

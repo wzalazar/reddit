@@ -1,9 +1,11 @@
 import { useDispatch } from 'react-redux'
-import { dismissAllPosts } from '../postsSlice'
+import { dismissAllPosts, animatedPostsPage } from '../postsSlice'
 
 export const usePostDismissAll = () => {
-  const dispath = useDispatch()
-  const onDismissAllPost = () => dispath(dismissAllPosts())
+  const dispatch = useDispatch()
 
-  return { onDismissAllPost }
+  const onDismissAllPost = () => dispatch(dismissAllPosts())
+  const onAnimatedPostsPage = () => dispatch(animatedPostsPage())
+
+  return { onDismissAllPost, onAnimatedPostsPage }
 }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { postsFetch } from '../postsFetch'
 import { postsPageSelector, postsAfterSelector } from '../postsSelectors'
-import { dismissPosts, viewedPosts } from '../postsSlice'
+import { dismissPosts, viewedPosts, animatedPosts } from '../postsSlice'
 
 export const usePostsActions = () => {
   const dispatch = useDispatch()
@@ -11,19 +11,23 @@ export const usePostsActions = () => {
   const after = useSelector(postsAfterSelector)
 
   useEffect(() => {
-    dispatch(postsFetch())
+    if (!after) {
+      dispatch(postsFetch())
+    }
 
     return () => {}
-  }, [dispatch])
+  }, [dispatch, after])
 
   const onFetchMore = () => dispatch(postsFetch(after))
   const onDismissPost = (id: string) => dispatch(dismissPosts(id))
   const onViewedPosts = (id: string) => dispatch(viewedPosts(id))
+  const onAnimatedPost = (id: string) => dispatch(animatedPosts(id))
 
   return {
     pages,
     onFetchMore,
     onDismissPost,
     onViewedPosts,
+    onAnimatedPost,
   }
 }

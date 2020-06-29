@@ -5,7 +5,12 @@ import { Button } from 'Components/Button'
 import { usePostDismissAll } from './Hooks/usePostDismissAll'
 
 export const FeaturePostDismissAll = () => {
-  const { onDismissAllPost } = usePostDismissAll()
+  const { onDismissAllPost, onAnimatedPostsPage } = usePostDismissAll()
 
-  return <Button onClick={onDismissAllPost}>Dismiss All</Button>
+  const handlerOnClick = () => {
+    onDismissAllPost()
+    setTimeout(() => onAnimatedPostsPage(), 350 * 1)
+  }
+
+  return <Button onClick={handlerOnClick}>Dismiss All</Button>
 }
