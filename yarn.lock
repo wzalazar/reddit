@@ -11287,6 +11287,11 @@ react-top-loading-bar@^1.2.0:
   resolved "https://registry.yarnpkg.com/react-top-loading-bar/-/react-top-loading-bar-1.2.0.tgz#fcbca3c2e462bee7b1c0d1850e8b584cd7bd5a26"
   integrity sha512-5oNdy+DfD5JK06bcc/gsnnXHmml+d8eaBe3C8KQ3eLiH/BD8+FcwsgbAwqgOaRjuSeVQXdYN2JC2G1uVFtCLfA==
 
+react-use-breakpoints@^0.0.15:
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/react-use-breakpoints/-/react-use-breakpoints-0.0.15.tgz#e7b85559d4761112e79c1e2ebe6f1e1d282ad2f0"
+  integrity sha512-d3JWuNlvQIBPHFFzPjivf930xcpa4sBxkHReCysJzIzGd6dPdrxfZLxw6+nzpXpMVudTvmZL6yd12Zgg/F+wIQ==
+
 react@16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"

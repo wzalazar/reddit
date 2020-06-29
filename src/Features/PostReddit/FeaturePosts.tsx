@@ -30,7 +30,6 @@ export const FeaturePosts = () => {
     onDismissPost(id)
   }
 
-  // if (pages.length === 0) return <EmptyLoading />
   if (pages.length === 0) {
     return (
       <>
@@ -53,7 +52,7 @@ export const FeaturePosts = () => {
                     onClick={() => onViewedPosts(post.id)}
                     to={{
                       pathname: '/posts',
-                      search: `?page=${page}&id=${post.id}`,
+                      search: `?page=${page}&id=${post.id}&view=true`,
                     }}
                   >
                     <Card {...post} onDismiss={(event: any) => handleDissmmissPost(event, post.id)} />

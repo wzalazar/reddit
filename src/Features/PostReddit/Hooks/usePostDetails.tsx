@@ -1,21 +1,14 @@
 import { useSelector } from 'react-redux'
-import { useLocation } from 'react-router-dom'
 
 import { postsGetByIDSelector } from '../postsSelectors'
 
-const useQuery = () => {
-  return new URLSearchParams(useLocation().search)
-}
+import { useQuery } from './useQuery'
 
 export const usePostDetails = () => {
-  const queryPage = useQuery()
+  const query = useQuery()
+  const { page, id } = query
 
-  const query: { page: string; id: string } = {
-    page: queryPage.get('page') ?? '',
-    id: queryPage.get('id') ?? '',
-  }
-
-  const post: any = useSelector(postsGetByIDSelector(query.page, query.id))
+  const post: any = useSelector(postsGetByIDSelector(page, id))
 
   return {
     post,
