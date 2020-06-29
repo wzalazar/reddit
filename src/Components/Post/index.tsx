@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Flex } from 'Components/Flex'
 import { Space } from 'Components/Space'
 import { Img } from 'Components/Img'
+import { CardHeader } from 'Components/Card/CardHeader'
 
 type Props = {
   title: string
@@ -22,20 +23,23 @@ const CardBox = styled.div`
   width: 100%;
 `
 
-export const Post: FC<Props> = ({ title, thumbPost }): JSX.Element => (
+const getImage = (img: string) => (['self', 'default'].includes(img) ? 'https://picsum.photos/100/100' : img)
+
+export const Post: FC<Props> = ({ title, author, date, thumbAuthor, statusRead, thumbPost }): JSX.Element => (
   <CardBox>
-    <Space p="30px" width="100%">
+    <Space mt="10px" width="100%">
+      <CardHeader author={author} date={date} thumbAuthor={getImage(thumbAuthor)} statusRead={statusRead} />
+    </Space>
+    <Space p="10px 20px 20px 20px" width="100%">
       <Flex wrap="wrap">
-        <Space mt="20px" width="100%">
-          <Flex width="100%" wrap="wrap" justify="center">
-            <Space mt="20px" width="100%">
-              <h2>{title}</h2>
-            </Space>
-            <Space mt="20px" width="100%">
-              <Img src={thumbPost} alt="Thumb" />
-            </Space>
-          </Flex>
-        </Space>
+        <Flex width="100%" wrap="wrap" justify="flex-start">
+          <Space mb="20px" width="100%">
+            <h2>{title}</h2>
+          </Space>
+          <Space mt="10px" width="100%">
+            <Img src={getImage(thumbPost)} alt="Thumb" />
+          </Space>
+        </Flex>
       </Flex>
     </Space>
   </CardBox>

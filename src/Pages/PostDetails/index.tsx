@@ -14,7 +14,7 @@ export const PostDetails = () => (
       </Space>
     }
     main={
-      <Space m="50px 0 60px 0px" width="100%">
+      <Space m="50px 10px 60px 0px" width="100%">
         <FeaturePostDetails />
       </Space>
     }
