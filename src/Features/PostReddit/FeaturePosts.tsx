@@ -11,7 +11,7 @@ import { RemovePostAnimation } from 'Components/Animations'
 import { usePostsActions } from './Hooks/usePostsActions'
 
 export const FeaturePosts = () => {
-  const { pages, onFetchMore, onDismissPost } = usePostsActions()
+  const { pages, onFetchMore, onDismissPost, onViewedPosts } = usePostsActions()
 
   const handleDissmmissPost = (event: any, id: string): void => {
     event.preventDefault()
@@ -26,6 +26,7 @@ export const FeaturePosts = () => {
             <RemovePostAnimation key={`${page}-${post.id}`} isDismissing={post.isDismiss}>
               <Space m="10px">
                 <Link
+                  onClick={() => onViewedPosts(post.id)}
                   to={{
                     pathname: '/posts',
                     search: `?page=${page}&id=${post.id}`,
