@@ -3,6 +3,8 @@ import LoadingBar from 'react-top-loading-bar'
 import { appLoadingSelector } from './appSelector'
 import { useSelector } from 'react-redux'
 
+// TODO Research another component, this implement
+// has performance issue
 export const FeatureLoadingApp = (): JSX.Element => {
   const loading = useSelector(appLoadingSelector)
   const [percentage, setPercentage] = useState(0)

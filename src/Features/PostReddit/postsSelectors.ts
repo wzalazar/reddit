@@ -23,13 +23,22 @@ const isRead = (pages: any, post: any) => {
   return pages?.viewedPosts.indexOf(post?.data?.id) !== -1
 }
 
+const isAnimatedPost = (pages: any, post: any) => {
+  return pages?.animatedPosts.indexOf(post?.data?.id) !== -1
+}
+
 export const postsPageSelector = createSelector(redditSelector, (pages) => {
   return pages.data.reduce((acum: any, page: any, pageNumber: number) => {
     const children = page?.data?.children ?? []
     const posts = children.map((post: any) => {
       const postMapped = mappingPost(post)
 
-      return { ...postMapped, isDismiss: isDismiss(pages, page, post), statusRead: isRead(pages, post) }
+      return {
+        ...postMapped,
+        isDismiss: isDismiss(pages, page, post),
+        statusRead: isRead(pages, post),
+        isAnimatedPost: isAnimatedPost(pages, post),
+      }
     })
 
     return [...acum, [pageNumber, posts]]
@@ -49,7 +58,12 @@ export const postsGetByIDSelector = (currentPage?: any, id?: string) =>
     for (let post of posts) {
       if (post.data.id === id) {
         const postMapped = mappingPost(post)
-        return { ...postMapped, isDismiss: isDismiss(pages, page, post), statusRead: isRead(pages, post) }
+        return {
+          ...postMapped,
+          isDismiss: isDismiss(pages, page, post),
+          statusRead: isRead(pages, post),
+          isAnimatedPost: isAnimatedPost(pages, post),
+        }
       }
     }
 
