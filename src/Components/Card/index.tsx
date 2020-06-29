@@ -4,11 +4,9 @@ import styled from 'styled-components'
 import { Flex } from 'Components/Flex'
 import { Button } from 'Components/Button'
 import { Img } from 'Components/Img'
-import { ImgCircle } from 'Components/ImgCircle'
 import { Space } from 'Components/Space'
 import { IconComment } from 'Components/Icons'
-import { IconOk } from 'Components/Icons'
-import { Opacity } from 'Components/Opacity'
+import { CardHeader } from './CardHeader'
 
 type Props = {
   title: string
@@ -26,10 +24,7 @@ const CardBox = styled.div`
   box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2);
 `
 
-const HeaderColor = styled.div`
-  background-color: #f8f9fa;
-  width: 100%;
-`
+const getImage = (img: string) => (['self', 'default'].includes(img) ? 'https://picsum.photos/100/100' : img)
 
 export const Card: FC<Props> = ({
   title,
@@ -43,29 +38,10 @@ export const Card: FC<Props> = ({
 }): JSX.Element => (
   <CardBox>
     <Flex wrap="wrap">
-      <HeaderColor>
-        <Space p="5px 15px" width="100%">
-          <Flex align="center" justify="space-between" width="100%">
-            <Flex align="center" justify="center">
-              <ImgCircle width={'30px'} src={thumbAuthor} alt="Thumb" />{' '}
-              <Space ml="5px" mr="5px">
-                <p>Posted by {author}</p>
-              </Space>{' '}
-              <time>
-                <p>{date}</p>
-              </time>
-            </Flex>
-            <Flex align="center" justify="center">
-              <Opacity opacity={statusRead ? 1 : 0.2}>
-                <IconOk width="15px" />
-              </Opacity>
-            </Flex>
-          </Flex>
-        </Space>
-      </HeaderColor>
+      <CardHeader author={author} date={date} thumbAuthor={getImage(thumbAuthor)} statusRead={statusRead} />
       <Space p="15px 15px" width="100%">
         <Flex width="100%">
-          <Img src={thumbPost} alt="Thumb" height="100px" width="100px" />
+          <Img src={getImage(thumbPost)} alt="Thumb" height="100px" width="100px" />
           <Space p="0 20px">
             <h6>{title}</h6>
           </Space>
