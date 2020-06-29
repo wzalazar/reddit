@@ -22,5 +22,6 @@ export const GlobalStyles = createGlobalStyle`
     color: #1c1c1c;
     border: none;
     text-decoration: none;
+    line-height: 1.4;
   }
 `
