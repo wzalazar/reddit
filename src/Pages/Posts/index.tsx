@@ -5,6 +5,7 @@ import { Template } from 'Pages/Template'
 import { Space } from 'Components/Space'
 
 import { FeaturePosts } from 'Features/PostReddit/FeaturePosts'
+import { FeaturePostDismissAll } from 'Features/PostReddit/FeaturePostDismissAll'
 import { Flex } from 'Components/Flex'
 import { Opacity } from 'Components/Opacity'
 
@@ -22,4 +23,4 @@ const Main = () => (
   </Flex>
 )
 
-export const Posts = () => <Template sidebar={<Sidebar />} main={<Main />}></Template>
+export const Posts = () => <Template sidebar={<Sidebar />} main={<Main />} footer={<FeaturePostDismissAll />} />

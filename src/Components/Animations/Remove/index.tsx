@@ -16,6 +16,8 @@ const removePost = keyframes`
     height: 0;
     opacity: 0;
     z-index: -1;
+    position: absolute;
+    top: 0;
   }
 `
 
