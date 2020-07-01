@@ -1,6 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
 import postsReducer from 'Features/PostReddit/postsSlice'
-import appReducer from 'Features/App/appSlice'
 import { LocalStorage } from './LocalStorage'
 
 const localStorage = LocalStorage()
@@ -11,7 +10,6 @@ export const store = configureStore({
   preloadedState,
   reducer: {
     postsReddit: postsReducer,
-    app: appReducer,
   },
 })
 
