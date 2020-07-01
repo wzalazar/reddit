@@ -26,7 +26,9 @@ export const CardHeader: FC<Props> = ({ author, date, thumbAuthor, statusRead })
     <Space p="5px 15px" width="100%">
       <Flex align="center" justify="space-between" width="100%">
         <Flex align="center" justify="center">
-          {thumbAuthor && <ImgCircle width={'30px'} height={'30px'} src={thumbAuthor} alt="Thumb" />}{' '}
+          {thumbAuthor && (
+            <ImgCircle aria-label="author-image" width={'30px'} height={'30px'} src={thumbAuthor} alt="Thumb" />
+          )}{' '}
           <Space ml="5px" mr="5px">
             {author && <p>Posted by {author}</p>}
           </Space>{' '}

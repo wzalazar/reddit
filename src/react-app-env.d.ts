@@ -22,3 +22,9 @@ declare module 'react-use-breakpoints' {
   }
   export = breakpoint
 }
+
+declare module 'casual' {
+  var c: any
+
+  export = main
+}
