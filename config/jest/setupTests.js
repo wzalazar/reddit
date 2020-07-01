@@ -7,3 +7,6 @@ jest.mock("react-router-dom", () => ({
     pathname: "localhost:3000"
   })
 }));
+
+
+// global.XMLHttpRequest = undefined;

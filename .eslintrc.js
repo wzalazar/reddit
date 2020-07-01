@@ -21,6 +21,7 @@ module.exports = {
     "jest": false,
     "it": false,
     "beforeEach": false,
+    "afterEach": false,
     "process": false,
     "describe": false,
     "test": false,

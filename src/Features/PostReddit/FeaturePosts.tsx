@@ -43,7 +43,7 @@ export const FeaturePosts = () => {
   }
 
   return (
-    <Space pt="10px">
+    <Space pt="10px" data-testid="posts">
       <Flex wrap="wrap" justify="center">
         {pages.map(([page, posts = []]: any) => (
           <React.Fragment key={page}>
@@ -51,7 +51,7 @@ export const FeaturePosts = () => {
               if (post.isAnimatedPost && post.isDismiss) return null
 
               return (
-                <RemovePostAnimation key={`${page}-${post.id}`} isDismissing={post.isDismiss}>
+                <RemovePostAnimation data-testid={post.id} key={`${page}-${post.id}`} isDismissing={post.isDismiss}>
                   <Space m="0px 10px 10px 10px">
                     <Link
                       onClick={() => onViewedPosts(post.id)}

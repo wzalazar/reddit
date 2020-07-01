@@ -41,7 +41,7 @@ export const Card: FC<Props> = ({
       <CardHeader author={author} date={date} thumbAuthor={getImage(thumbAuthor)} statusRead={statusRead} />
       <Space p="15px 15px" width="100%">
         <Flex width="100%">
-          <Img src={getImage(thumbPost)} alt="Thumb" height="100px" width="100px" />
+          <Img aria-label="post-image" src={getImage(thumbPost)} alt="Thumb" height="100px" width="100px" />
           <Space p="0 20px">
             <h6>{title}</h6>
           </Space>
