@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-    <a href="https://github.com/wzalazar/demo-reddit/workflows/Test"><img alt="Github Actions CI" src="https://github.com/wzalazar/demo-reddit/workflows/Test/badge.svg"></a>
+    <a href="https://github.com/wzalazar/demo-reddit/actions"><img alt="Github Actions CI" src="https://github.com/wzalazar/demo-reddit/workflows/Test/badge.svg"></a>
     <a href="https://codecov.io/gh/wzalazar/demo-reddit"><img alt="Codecov Status" src="https://codecov.io/gh/wzalazar/demo-reddit/branch/master/graph/badge.svg"></a>
     <a href="#badge">
       <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
@@ -11,47 +11,78 @@
 </p>
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## Guide
 
-## Available Scripts
+- [Bootstrapping](#install)
+- [Requirements](#requirements)
+- [How to Run](#how-to-run)
+- [Scripts](#scripts)
+- [Tacking Tasks](#tracking-tasks)
+- [Decision Making](#decision-making)
 
-In the project directory, you can run:
+#### Bootstrapping
 
-### `yarn start`
+This project was bootstrapped with [Create React App, Custom Template](https://github.com/wzalazar/cra-template-super-redux-typescript), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+#### Requirements
 
-### `yarn test`
+This project is using [nvm](https://github.com/nvm-sh/nvm). If you use nvm just to execute `nvm use` for installing the rights NodeJS and NPM version.
+If you are not a user of nvm, you will be able to check the file [.nvmrc](https://github.com/wzalazar/demo-reddit/blob/master/.nvmrc)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### How to run
 
-### `yarn build`
+```bash
+  $ git clone git@github.com:wzalazar/demo-reddit.git
+  $ cd ./demo-reddit
+  $ yarn
+  $ yarn start
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Scripts
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+| script            |  description                                            | 
+|-------------------|---------------------------------------------------------|
+|  start            | Runs the app in the development mode.                   | 
+|  build            | Builds the app for production.                          |  
+|  test             | Launches the test runner in the interactive watch mode. |  
+|  lint             | Lint the project.                                       |  
+|  semantic-release | Generate semantic release, only for CI                  |  
+|  codecov          | Push de coverage to codecov, only for CI                |  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### Tracking Tasks
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I created a Project board for tracking my tasks. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+https://github.com/wzalazar/demo-reddit/projects/1
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Decision Making
 
-## Learn More
+- Typescript
+I choose typescript due that is a better way to create javascript applications. Is javascript with steroids.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Redux
+I choose redux due to is the "king" of the state management. Single path of truth.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Styled Components
+I choose styles-components because I think is the better way for creating isolated components.
+
+- React Testing Library
+I choose testing-library because this brings an effective way of creating an integration test, and resilient tests.
+
+- Semantic Release
+I choose semantic-release for adding versioning in the project.
+
+- Github actions
+I choose Github Actions for adding Quality assurance in the project.
+
+- Github Project board
+I choose the Github Project board due is a great tool for tracking the tasks and have historical progress.
+
+- Renovate
+I choose to use the tool renovate for updating my dependencies, this update will have to pass all tests before the merge.
+
+- Testing
+I choose to create more integration tests over unit tests for covering my project. With the integration test, I'm ensuring the scenarios are working fine with all components.
