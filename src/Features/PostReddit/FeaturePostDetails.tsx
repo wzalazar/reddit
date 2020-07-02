@@ -6,8 +6,9 @@ import { Flex } from 'Components/Flex'
 
 import { usePostDetails } from './Hooks/usePostDetails'
 
-export const FeaturePostDetails = () => {
+export const FeaturePostDetails = (): JSX.Element => {
   const { post } = usePostDetails()
+  const isEmptyPost = Object.keys(post).length === 0
   const isDismiss = post?.isDismiss ?? false
 
   if (isDismiss) {
@@ -20,5 +21,5 @@ export const FeaturePostDetails = () => {
     )
   }
 
-  return <>{post && <Post {...post} />}</>
+  return <>{!isEmptyPost && <Post {...post} />}</>
 }

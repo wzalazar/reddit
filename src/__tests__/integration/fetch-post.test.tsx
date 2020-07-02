@@ -2,8 +2,9 @@ import React from 'react'
 import { render, waitFor, screen } from '@testing-library/react'
 import nock from 'nock'
 
-import { Application } from 'Application'
 import { URLReddit } from 'Features/PostReddit/API/Reddit'
+
+import { App } from './helpers/App'
 import { createReply, data } from './helpers'
 
 describe('when fetch the post', () => {
@@ -16,7 +17,7 @@ describe('when fetch the post', () => {
       .query({ limit: 50 })
       .reply(200, () => reply, { 'Access-Control-Allow-Origin': '*' })
 
-    render(<Application />)
+    render(<App />)
 
     await waitFor(() => screen.getByTestId(post.id.toString()))
 

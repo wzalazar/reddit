@@ -5,6 +5,7 @@ import { Flex } from 'Components/Flex'
 import { Space } from 'Components/Space'
 import { Img } from 'Components/Img'
 import { CardHeader } from 'Components/Card/CardHeader'
+import { getImage } from 'Helpers/getImage'
 
 type Props = {
   title: string
@@ -23,10 +24,8 @@ const CardBox = styled.div`
   width: 100%;
 `
 
-const getImage = (img: string) => (['self', 'default'].includes(img) ? 'https://picsum.photos/100/100' : img)
-
 export const Post: FC<Props> = ({ title, author, date, thumbAuthor, statusRead, thumbPost }): JSX.Element => (
-  <CardBox>
+  <CardBox data-testid={'post-detail'}>
     <Space mt="10px" width="100%">
       <CardHeader author={author} date={date} thumbAuthor={getImage(thumbAuthor)} statusRead={statusRead} />
     </Space>
@@ -37,7 +36,7 @@ export const Post: FC<Props> = ({ title, author, date, thumbAuthor, statusRead, 
             <h2>{title}</h2>
           </Space>
           <Space mt="10px" width="100%">
-            {thumbPost && <Img src={getImage(thumbPost)} alt="Thumb" />}
+            <Img src={getImage(thumbPost)} alt="Thumb" />
           </Space>
         </Flex>
       </Flex>

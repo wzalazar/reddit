@@ -7,6 +7,7 @@ import { Img } from 'Components/Img'
 import { Space } from 'Components/Space'
 import { IconComment } from 'Components/Icons'
 import { CardHeader } from './CardHeader'
+import { getImage } from 'Helpers/getImage'
 
 type Props = {
   title: string
@@ -23,8 +24,6 @@ const CardBox = styled.div`
   background-color: ${(props) => props.theme.colors.white};
   box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2);
 `
-
-const getImage = (img: string) => (['self', 'default'].includes(img) ? 'https://picsum.photos/100/100' : img)
 
 export const Card: FC<Props> = ({
   title,

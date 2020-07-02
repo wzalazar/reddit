@@ -12,7 +12,7 @@ interface InitialState {
   animatedPostsPage: any[]
 }
 
-const initialState: InitialState = {
+export const initialState: InitialState = {
   data: [],
   loading: 'idle',
   error: false,

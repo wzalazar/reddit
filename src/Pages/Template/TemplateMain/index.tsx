@@ -1,5 +1,5 @@
 import React, { ReactNode, FC } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { useWindowSize } from 'react-use-breakpoints'
 
 import { Layout } from 'Components/Layout'
@@ -17,20 +17,10 @@ const Scroll = styled.div`
   width: 100%;
 `
 
-type DesktopProps = {
-  hide?: boolean
-}
-
-const DesktopSidebar = styled(Flex)<DesktopProps>`
+const DesktopSidebar = styled(Flex)`
   width: 100%;
   position: absolute;
   top: 0px;
-
-  ${({ hide }: any) =>
-    hide &&
-    css`
-      display: none;
-    `}
 
   @media only screen and (min-width: 768px) {
     width: 30%;
@@ -39,18 +29,12 @@ const DesktopSidebar = styled(Flex)<DesktopProps>`
   }
 `
 
-const DesktopMain = styled(Flex)<DesktopProps>`
+const DesktopMain = styled(Flex)`
   width: 100%;
   position: absolute;
   top: 0px;
   padding-left: 10px;
   box-sizing: border-box;
-
-  ${({ hide }: any) =>
-    hide &&
-    css`
-      display: none;
-    `}
 
   @media only screen and (min-width: 768px) {
     width: 70%;
@@ -70,19 +54,21 @@ const Desktop = styled(Flex)`
 
 export const TemplateMain: FC<Props> = ({ sidebar, main }) => {
   const { outerWidth } = useWindowSize()
-  const isMobile = outerWidth <= 768 ?? false
+  const isMobile = outerWidth <= 768
   const { view } = useQuery()
 
-  const hidePost = !view && isMobile
-  const hideSidebar = view && isMobile
+  const showMain = isMobile ? view : true
+  const showSidebar = isMobile ? !view : true
 
   return (
     <Layout>
       <Desktop>
-        <DesktopSidebar hide={hideSidebar}>
-          <Scroll>{sidebar}</Scroll>
-        </DesktopSidebar>
-        <DesktopMain hide={hidePost}>{main}</DesktopMain>
+        {showSidebar && (
+          <DesktopSidebar>
+            <Scroll>{sidebar}</Scroll>
+          </DesktopSidebar>
+        )}
+        {showMain && <DesktopMain>{main}</DesktopMain>}
       </Desktop>
     </Layout>
   )

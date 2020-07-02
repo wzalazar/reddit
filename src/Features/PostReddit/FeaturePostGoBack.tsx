@@ -22,6 +22,7 @@ export const FeaturePostGoBack = () => {
 
   return (
     <Link
+      data-testid="go-back"
       to={{
         pathname: '/posts',
         search: `?page=${query.page}&id=${query.id}&view=false`,
