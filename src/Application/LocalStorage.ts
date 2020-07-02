@@ -2,6 +2,7 @@ export const LocalStorage = () => {
   const loadState = () => {
     try {
       const serializedData = localStorage.getItem('state')
+
       if (serializedData === null) {
         return undefined
       }

@@ -45,9 +45,9 @@ export const FeaturePosts = () => {
   return (
     <Space pt="10px" data-testid="posts">
       <Flex wrap="wrap" justify="center">
-        {pages.map(([page, posts = []]: any) => (
+        {pages.map(([page, posts]: any) => (
           <React.Fragment key={page}>
-            {posts.map((post: any) => {
+            {posts?.map((post: any) => {
               if (post.isAnimatedPost && post.isDismiss) return null
 
               return (

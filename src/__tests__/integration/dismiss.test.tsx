@@ -2,8 +2,9 @@ import React from 'react'
 import { render, waitFor, screen, fireEvent, waitForElementToBeRemoved } from '@testing-library/react'
 import nock from 'nock'
 
-import { Application } from 'Application'
 import { URLReddit } from 'Features/PostReddit/API/Reddit'
+
+import { App } from './helpers/App'
 import { createReply, data } from './helpers'
 
 describe('when click on dismiss', () => {
@@ -16,7 +17,7 @@ describe('when click on dismiss', () => {
       .query(true)
       .reply(200, () => reply, { 'Access-Control-Allow-Origin': '*' })
 
-    const { queryByText } = render(<Application />)
+    const { queryByText } = render(<App />)
 
     await waitFor(() => screen.getByTestId(post.id.toString()))
 
