@@ -60,29 +60,29 @@ https://github.com/wzalazar/demo-reddit/projects/1
 
 ## Decision Making
 
-- Typescript
+- **Typescript:**
 I choose typescript due that is a better way to create javascript applications. Is javascript with steroids.
 
-- Redux
+- **Redux:**
 I choose redux due to is the "king" of the state management. Single path of truth.
 
-- Styled Components
+- **Styled Components:**
 I choose styles-components because I think is the better way for creating isolated components.
 
-- React Testing Library
+- **React Testing Library:**
 I choose testing-library because this brings an effective way of creating an integration test, and resilient tests.
 
-- Semantic Release
+- **Semantic Release:**
 I choose semantic-release for adding versioning in the project.
 
-- Github actions
+- **Github actions:**
 I choose Github Actions for adding Quality assurance in the project.
 
-- Github Project board
+- **Github Project board:**
 I choose the Github Project board due is a great tool for tracking the tasks and have historical progress.
 
-- Renovate
+- **Renovate:**
 I choose to use the tool renovate for updating my dependencies, this update will have to pass all tests before the merge.
 
-- Testing
+- **Testing:**
 I choose to create more integration tests over unit tests for covering my project. With the integration test, I'm ensuring the scenarios are working fine with all components.
