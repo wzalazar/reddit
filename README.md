@@ -1,5 +1,6 @@
 <h1 align="center">
-    Reddit Demo
+   <img src="https://raw.githubusercontent.com/wzalazar/demo-reddit/HEAD/src/Components/Logo/logo.svg" height="35"/>
+   <a href="https://demo-reddit.netlify.app/">Reddit Demo</a>
 </h1>
 
 <p align="center">
