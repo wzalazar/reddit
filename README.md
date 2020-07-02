@@ -13,7 +13,7 @@
 
 ## Guide
 
-- [Bootstrapping](#install)
+- [Bootstrapping](#bootstrapping)
 - [Requirements](#requirements)
 - [How to Run](#how-to-run)
 - [Scripts](#scripts)
