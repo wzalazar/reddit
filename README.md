@@ -19,6 +19,7 @@
 - [Scripts](#scripts)
 - [Tacking Tasks](#tracking-tasks)
 - [Decision Making](#decision-making)
+- [Demo](https://demo-reddit.netlify.app/)
 
 #### Bootstrapping
 
