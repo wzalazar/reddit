@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, waitFor, screen, fireEvent, waitForElementToBeRemoved } from '@testing-library/react'
+import { render, waitFor, screen, fireEvent } from '@testing-library/react'
 import nock from 'nock'
 
 import { URLReddit } from 'Features/PostReddit/API/Reddit'
@@ -22,7 +22,8 @@ describe('when click on dismiss', () => {
     await waitFor(() => screen.getByTestId(post.id.toString()))
 
     fireEvent.click(screen.getByText('Dismiss'))
+    fireEvent.animationEnd(screen.getByText('Dismiss'))
 
-    await waitForElementToBeRemoved(() => queryByText(new RegExp(post.title)))
+    expect(queryByText(new RegExp(post.title))).toBeNull()
   })
 })
