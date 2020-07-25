@@ -28,8 +28,6 @@ export const FeaturePosts = () => {
   const handleDissmmissPost = (event: any, id: string): void => {
     event.preventDefault()
     onDismissPost(id)
-
-    setTimeout(() => onAnimatedPost(id), 350 * 1)
   }
 
   if (pages.length === 0) {
@@ -51,7 +49,12 @@ export const FeaturePosts = () => {
               if (post.isAnimatedPost && post.isDismiss) return null
 
               return (
-                <RemovePostAnimation data-testid={post.id} key={`${page}-${post.id}`} isDismissing={post.isDismiss}>
+                <RemovePostAnimation
+                  onAnimationEnd={() => onAnimatedPost(post.id)}
+                  data-testid={post.id}
+                  key={`${page}-${post.id}`}
+                  isDismissing={post.isDismiss}
+                >
                   <Space m="0px 10px 10px 10px">
                     <Link
                       onClick={() => onViewedPosts(post.id)}
