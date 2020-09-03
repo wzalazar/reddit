@@ -65,7 +65,7 @@
     "casual": "1.6.2",
     "codecov": "3.7.2",
     "husky": "4.2.5",
-    "lint-staged": "10.2.13",
+    "lint-staged": "10.3.0",
     "mq-polyfill": "1.1.8",
     "nock": "13.0.0",
     "semantic-release": "17.1.1"
