@@ -16,5 +16,5 @@
   "devDependencies": {
     "automerge": true
   },
-  "prHourlyLimit": 1
+  "prConcurrentLimit": 1
 }
