@@ -68,6 +68,6 @@
     "lint-staged": "10.4.0",
     "mq-polyfill": "1.1.8",
     "nock": "13.0.4",
-    "semantic-release": "17.1.1"
+    "semantic-release": "17.1.2"
   }
 }
