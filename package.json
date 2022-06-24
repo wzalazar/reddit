@@ -63,7 +63,7 @@
     "@semantic-release/git": "9.0.0",
     "@types/nock": "11.1.0",
     "casual": "1.6.2",
-    "codecov": "3.7.2",
+    "codecov": "3.8.0",
     "husky": "4.3.0",
     "lint-staged": "10.4.0",
     "mq-polyfill": "1.1.8",
