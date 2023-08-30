@@ -5,7 +5,7 @@
 
 <p align="center">
     <a href="https://github.com/wzalazar/demo-reddit/actions"><img alt="Github Actions CI" src="https://github.com/wzalazar/demo-reddit/workflows/Test/badge.svg"></a>
-    <a href="https://codecov.io/gh/wzalazar/demo-reddit"><img alt="Codecov Status" src="https://codecov.io/gh/wzalazar/demo-reddit/branch/master/graph/badge.svg"></a>
+    <a href="https://codecov.io/gh/wzalazar/demo-reddit"><img alt="Codecov Status" src="https://codecov.io/gh/w4llydev/reddit/graph/badge.svg?token=ALQ2BTQVCQ"></a>
     <a href="#badge">
       <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
     </a>
